@@ -22,6 +22,11 @@ QUnit.test('By default the ringmaster needs to be calm.', function( assert ) {
   assert.equal(ringmaster.isCalm, true, 'message.' );
 });
 
+QUnit.test('Circus needs to support Backbone.Events', function(assert) {
+  var circus = new Circus();
+  assert.notEqual(circus.on, undefined, 'The circus has no on method, so does not support Backbone.Events.');
+});
+
 //REQUIREMENT: Use backbone events to connect the circus and the ringmaster
 QUnit.test('When a ringmaster watches a circus and a lion is added to the circus, the ringmaster needs to lose his calm.', function(assert) {
   var ringmaster = new Ringmaster();
