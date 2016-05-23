@@ -30,7 +30,13 @@ QUnit.test('Furniture needs a condition property, defaulted to "new".', function
   assert.equal(table.get('condition'), 'new', 'By default funiture should be new.' );
 });
 
-QUnit.test('When the condition of a piece of furniture, the store needs to plan to examine it.', function(assert) {
+QUnit.test('FurnitureStore needs a condition furnitureCountToBeExamined, defaulted to 0.', function( assert ) {
+  var store = new FurnitureStore();
+  assert.equal(store.get('furnitureCountToBeExamined'), 0, 'By default there should be none to examine.' );
+});
+
+
+QUnit.test('When the condition of a piece of furniture changes, the store needs to plan to examine it.', function(assert) {
   var store = new FurnitureStore();
   var table = new Furniture();
 
